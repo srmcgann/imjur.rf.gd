@@ -8,7 +8,7 @@
       'ftp_user' => 'if0_36394385',
       'ftp_pass' => 'Mr8KYrqcimRI',
       'remote_dir' => '/htdocs',
-      'local_dir' => '/home/scottmcgann4/imjur.rf.gd/dist_public',
+      'local_dir' => '~/imjur.rf.gd/dist_public',
     ],
     /*[
       'ftp_server'  => "ftpupload.net",
