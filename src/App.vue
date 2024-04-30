@@ -475,7 +475,7 @@ export default {
     },
     closePrompts(){
       if(this.state.newComment){
-        if(prompt('are you sure you want to leave?\n\nthis comment may be lost')){
+        if(confirm('are you sure you want to leave?\n\nthis comment may be lost')){
           this.state.showComposeComment = false
           this.state.newComment = ''
           this.state.composeCommentLink = null

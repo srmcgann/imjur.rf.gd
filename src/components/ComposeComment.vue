@@ -15,6 +15,7 @@
         :omitAssetData="true"
       /><br>
       <input
+        @keydown.enter="submit()"
         v-model="state.newComment"
         type="text"
         ref="commentInput"
@@ -24,6 +25,7 @@
       ><br><br>
       <button
         @click.stop.prevent="submit()"
+        class="submitCommentButton"
       >
         post comment
       </button>
@@ -43,6 +45,7 @@ export default {
   methods: {
     submit(){
       console.log('faux submitting...', this.state.newComment)
+      this.state.newComment = ''
     }
   },
   mounted(){
@@ -62,5 +65,12 @@ export default {
   }
   .commentInput{
     border: 1px solid #40f;
+    width: 600px;
+    background: #102;
+    font-size: 16px;
+  }
+  .submitCommentButton{
+    background: #0f8;
+    border-radius: 25px;
   }
 </style>
