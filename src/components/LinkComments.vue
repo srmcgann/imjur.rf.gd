@@ -22,7 +22,6 @@
       @mousedown.stop.prevent
       ref="commentList"
       class="commentList"
-      :style="`height: ${colHeight}`"
       :class="{'show': showComment, 'hide': !showComment}"
     >
       <div v-for="comment in link.comments" style="position: relative;">
@@ -179,7 +178,7 @@ export default {
     border: 1px solid #0ff4;
     position: absolute;
     z-index: 50;
-    height: -webkit-fill-availble;
+    height: -webkit-fill-available;
   }
   .commentLabel:hover{
     background: #0f44;
