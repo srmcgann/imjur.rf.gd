@@ -8,6 +8,7 @@
     <LoginPrompt         :state="state" v-if="state.showLoginPrompt" />
     <Admin               :state="state" v-if="showAdminButton" />
     <Stats               :state="state" v-if="state.showStats" />
+    <ComposeComment      :state="state" v-if="state.showComposeComment" />
     <Collections         :state="state" v-if="state.showCollections" />
     <EditCollection      :state="state" v-if="state.editCollection.length"
                          :collection="state.editCollection[0]" />
@@ -44,6 +45,7 @@ import Collections from './components/Collections'
 import LoginPrompt from './components/LoginPrompt'
 import UserSettings from './components/UserSettings'
 import EditCollection from './components/EditCollection'
+import ComposeComment from './components/ComposeComment'
 import CollectionTemplate from './components/CollectionTemplate'
 
 export default {
@@ -61,6 +63,7 @@ export default {
     LoginPrompt,
     Collections,
     UserSettings,
+    ComposeComment,
     EditCollection,
     CollectionTemplate,
   },
@@ -142,10 +145,12 @@ export default {
         showCollection: false,  // to view an individual collection
         showCollections: false,  // to invoke user's collection list view
         logout: null,
+        showComposeComment: false,
         onkeydown: null,
         showAdmin: false,
         uploadEventTally: 0,
         fetchEventTally: 0,
+        newComment: '',
         deleteEventTally: 0,
         regusername: '',
         username: '',
@@ -468,6 +473,13 @@ export default {
       setTimeout(()=>{reduceOpacity()}, 250)
     },
     closePrompts(){
+      if(this.state.newComment){
+        if(prompt('are you sure you want to leave?\n\nthis comment may be lost')){
+          this.state.showComposeComment = false
+        }
+      }else{
+        this.state.showComposeComment = false
+      }
       this.state.showLoginPrompt = false
       this.state.userSettingsVisible = false
       this.state.showModal = false
@@ -1543,6 +1555,7 @@ export default {
     },
     popupVisible(){
       return this.state.userSettingsVisible ||
+      this.state.showComposeComment ||
       this.state.showLoginPrompt ||
       this.state.showCollections ||
       this.state.editCollection.length ||

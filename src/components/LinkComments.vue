@@ -99,7 +99,7 @@ export default {
     },
     manageComments(){
       this.state.closePrompts()
-      this.state.showcomments = true
+      this.state.showComposeComment = true
     },
     toggleShowComments(){
       this.state.doMouseDown()
@@ -212,6 +212,7 @@ export default {
   }
   .commentRow{
     display: block;
-    margin-bottom: 0;
+    margin-bottom: 2em;
+    line-height: 1em;
   }
 </style>
