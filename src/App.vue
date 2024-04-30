@@ -8,7 +8,7 @@
     <LoginPrompt         :state="state" v-if="state.showLoginPrompt" />
     <Admin               :state="state" v-if="showAdminButton" />
     <Stats               :state="state" v-if="state.showStats" />
-    <ComposeComment      :state="state" v-if="state.showComposeComment" />
+    <ComposeComment      :state="state" v-if="state.showComposeComment"/>
     <Collections         :state="state" v-if="state.showCollections" />
     <EditCollection      :state="state" v-if="state.editCollection.length"
                          :collection="state.editCollection[0]" />

@@ -1,32 +1,44 @@
 <template>
-  <button
-    v-if="!this.state.uploadInProgress"
-    @click="state.closePrompts()"
-    class="cancelButton"
-    title="close this view [ESC]"
-  >
-    close/cancel
-  </button>
-  <div class="composeComment" ref="composeComment" tabindex="1000">
-    <input
-      v-modal="state.newComment"
-      type="text"
-      maxlength="1024"
-      class="commentInput"
-      placeholder="enter your comment..."
-    >
+  <div class="modalInner">
+    <Link
+      :state="state"
+      :link="state.composeCommentLink"
+      :omitAssetData="true"
+    ><br>
     <button
-      @click.stop.prevent="submit()"
+      v-if="!this.state.uploadInProgress"
+      @click="state.closePrompts()"
+      class="cancelButton"
+      title="close this view [ESC]"
     >
-      submit
+      close/cancel
     </button>
+    <div class="composeComment" ref="composeComment" tabindex="1000">
+      <input
+        v-model="state.newComment"
+        type="text"
+        maxlength="1024"
+        class="commentInput"
+        placeholder="enter your comment..."
+      >
+      <button
+        @click.stop.prevent="submit()"
+      >
+        submit
+      </button>
+    </div>
   </div>
 </template>
 
 <script>
+import Link from './Link'
+
 export default {
   name: 'ComposeComment',
   props: [ 'state' ],
+  components:{
+    Link
+  },
   methods: {
     submit(){
       console.log('faux submitting...', this.state.newComment)

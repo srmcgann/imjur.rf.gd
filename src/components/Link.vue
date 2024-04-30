@@ -113,7 +113,7 @@ todo
       ></div>
     </div>
     <br>
-    <AssetData :state="state" :link="link" />
+    <AssetData v-if="!omitAssetData" :state="state" :link="link" />
   </div>
 </template>
 
@@ -123,7 +123,7 @@ import AssetData from './AssetData'
 export default {
   name: 'Link',
   components: { AssetData },
-  props: [ 'state', 'link' ],
+  props: [ 'state', 'link', 'omitAssetData' ],
   data(){
     return {
       c: document.createElement('canvas'),
