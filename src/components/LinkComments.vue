@@ -99,6 +99,7 @@ export default {
     },
     manageComments(){
       this.state.closePrompts()
+      this.state.composeCommentLink = this.link
       this.state.showComposeComment = true
     },
     toggleShowComments(){

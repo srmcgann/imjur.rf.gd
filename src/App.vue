@@ -168,6 +168,7 @@ export default {
         regpassword: '',
         showUploadModal: false,
         loadingAssets: true,
+        composeCommentLink: null,
         previewCollection: null,
         loadingCollections: true,
         userInfo: [],
@@ -476,6 +477,8 @@ export default {
       if(this.state.newComment){
         if(prompt('are you sure you want to leave?\n\nthis comment may be lost')){
           this.state.showComposeComment = false
+          this.state.newComment = ''
+          this.state.composeCommentLink = null
         }
       }else{
         this.state.showComposeComment = false
