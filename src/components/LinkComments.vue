@@ -98,7 +98,7 @@ export default {
       this.state.closePrompts()
       this.state.showcomments = true
     },
-    toggleShowComment(){
+    toggleShowComments(){
       this.state.doMouseDown()
       if(!this.showComment){
         this.$nextTick(()=>{
