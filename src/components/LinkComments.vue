@@ -38,7 +38,7 @@
           <span
             class="commentName"
             :style="`font-size:16px; margin-left:${checked(comment) ? '26px':'-10px'};`"
-             v-html="state.shortText(comment.text, 28)"
+             v-html="comment.text"
           </span>
         </label>
         <!--
