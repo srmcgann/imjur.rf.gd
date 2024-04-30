@@ -24,7 +24,11 @@
       class="commentList"
       :class="{'show': showComment, 'hide': !showComment}"
     >
-      <div v-for="comment in link.comments" style="position: relative;">
+      <div
+        v-for="comment in link.comments"
+        style="position: relative;"
+        class="commentRow"
+      >
         <label
           class="checkboxLabel commentLabel"
         >
@@ -49,7 +53,7 @@
           title="view this item, in this comment"
         >👁</button> -->
         <br>
-      </div><br>
+      </div>
     </div>
   </div>
 </template>
@@ -205,5 +209,9 @@ export default {
   input[type=checkbox]{
     margin: 4px;
     margin-right: 0;
+  }
+  .commentRow{
+    display: block;
+    margin-bottom: 0;
   }
 </style>
