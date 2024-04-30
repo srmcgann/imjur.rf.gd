@@ -1544,6 +1544,8 @@ export default {
       return this.state.loggedIn && 
              this.state.isAdmin && 
              !this.state.showModal &&
+             !this.state.showComposeComment &&
+             !this.state.showEditCollection &&
              !this.state.showPreview &&
              !this.state.showLogin &&
              !this.state.showCollections

@@ -1,10 +1,5 @@
 <template>
   <div class="modalInner">
-    <Link
-      :state="state"
-      :link="state.composeCommentLink"
-      :omitAssetData="true"
-    /><br>
     <button
       v-if="!this.state.uploadInProgress"
       @click="state.closePrompts()"
@@ -14,6 +9,11 @@
       close/cancel
     </button>
     <div class="composeComment" ref="composeComment" tabindex="1000">
+      <Link
+        :state="state"
+        :link="state.composeCommentLink"
+        :omitAssetData="true"
+      /><br>
       <input
         v-model="state.newComment"
         type="text"
@@ -53,12 +53,11 @@ export default {
 
 <style scoped>
   .composeComment{
-    position: fixed;
-    top: 0;
-    left: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 1000;
-    width: 100vw;
-    height: 100vh;
     font-size: 14px;
   }
   .commentInput{
