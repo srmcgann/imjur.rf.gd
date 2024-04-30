@@ -17,14 +17,15 @@
       <input
         v-model="state.newComment"
         type="text"
+        ref="commentInput"
         maxlength="1024"
         class="commentInput"
         placeholder="enter your comment..."
-      >
+      ><br><br>
       <button
         @click.stop.prevent="submit()"
       >
-        submit
+        post comment
       </button>
     </div>
   </div>
@@ -45,7 +46,7 @@ export default {
     }
   },
   mounted(){
-    this.$refs.modal.focus()
+    this.$refs.commentInput.focus()
   }
 }
 </script>
@@ -61,5 +62,6 @@ export default {
     font-size: 14px;
   }
   .commentInput{
+    border: 1px solid #40f;
   }
 </style>
