@@ -36,7 +36,7 @@
           >
           <span class="checkmark" style="margin-left: -30px;"></span>
           <span
-            class="commentName"
+            class="commentText"
             :style="`font-size:16px; margin-left:${checked(comment) ? '26px':'-10px'};`"
              v-html="comment.text"
           </span>
@@ -179,6 +179,7 @@ export default {
     border: 1px solid #0ff4;
     position: absolute;
     z-index: 50;
+    height: -webkit-fill-availble;
   }
   .commentLabel:hover{
     background: #0f44;
@@ -186,16 +187,17 @@ export default {
   .commentLabel{
     display: block;
   }
-  .commentName{
+  .commentText{
     font-size:14px;
     display:block;
     width: 261px;
     overflow: hidden;
-    text-wrap: nowrap;
+    word-break: auto-phrase;
     color:#4f8;
     padding:0;
     margin-left: -10px;
     padding-left: 10px;
+    
   }
   .checkboxLabel{
     padding-left: unset;
