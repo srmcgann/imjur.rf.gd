@@ -1933,7 +1933,7 @@ a{
   margin: unset;
   margin-right: 5px;
 }
-.collectionsButton{
+.assetDataButton{
   line-height: 13px;
   font-weight: 400;
   font-size: 20px;

@@ -3,7 +3,7 @@
     <button
       @mousedown.stop.prevent
       @click.stop.prevent="toggleShowComments()"
-      class="commentsButton"
+      class="assetDataButton"
       style="background: #84fd; color: #fff;"
       title="show or hide comments"
       v-html="showComment?`close`:`show (${link.comments.length})`"
@@ -13,7 +13,7 @@
     <button
       @mousedown.stop.prevent
       @click.stop.prevent="manageComments()"
-      class="commentsButton"
+      class="assetDataButton"
       style="background: #4f8d"
       title="view and edit your comments"
       v-html="link.comments.length ? 'manage' : 'create a comment'"
