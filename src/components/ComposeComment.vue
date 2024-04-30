@@ -4,7 +4,7 @@
       :state="state"
       :link="state.composeCommentLink"
       :omitAssetData="true"
-    ><br>
+    /><br>
     <button
       v-if="!this.state.uploadInProgress"
       @click="state.closePrompts()"
