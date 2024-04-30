@@ -24,6 +24,8 @@
         placeholder="enter your comment..."
       ><br><br>
       <button
+        :disabled="!state.newComment"
+        :class="{'disabled': !state.newComment}"
         @click.stop.prevent="submit()"
         class="submitCommentButton"
       >
@@ -63,11 +65,16 @@ export default {
     z-index: 1000;
     font-size: 14px;
   }
+  .disabled{
+    background: #333;
+    color: #888;
+  }
   .commentInput{
     border: 1px solid #40f;
     width: 600px;
     background: #102;
     font-size: 16px;
+    margin-top: 50px;
   }
   .submitCommentButton{
     background: #0f8;
