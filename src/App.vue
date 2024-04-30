@@ -693,6 +693,7 @@ export default {
                 originalSlug: data[2][i].originalSlug,
                 originalDate: data[2][i].originalDate,
                 origin: data[2][i].origin,
+                comments: data[2][i].comments,
                 hash: data[2][i].hash,
                 date: data[2][i].date,
                 private: !!(+data[2][i].private),
