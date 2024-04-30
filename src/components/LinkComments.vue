@@ -53,9 +53,6 @@
       </div>
     </div>
   </div>
-  <div v-else class="commentSelection">
-    nothing selected 
-  </div>
 </template>
 
 <script>
