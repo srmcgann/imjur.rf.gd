@@ -7,7 +7,7 @@
       style="background: #84fd; color: #fff;"
       title="show or hide comments"
       v-html="showComment?`close`:`show (${link.comments.length})`"
-      v-if="!!state.comments.length"
+      v-if="!!link.comments.length"
     >
     </button>
     <button
@@ -16,7 +16,7 @@
       class="commentsButton"
       style="background: #4f8d"
       title="view and edit your comments"
-      v-html="state.comments.length ? 'manage' : 'create a comment'"
+      v-html="link.comments.length ? 'manage' : 'create a comment'"
     ></button><br>
     <div
       @mousedown.stop.prevent
@@ -25,7 +25,7 @@
       :style="`height: ${colHeight}`"
       :class="{'show': showComment, 'hide': !showComment}"
     >
-      <div v-for="comment in state.comments" style="position: relative;">
+      <div v-for="comment in link.comments" style="position: relative;">
         <label
           class="checkboxLabel commentLabel"
         >
@@ -72,11 +72,11 @@ export default {
   computed:{
     filteredcomments(){
       let ret = ['none']
-      ret = [...ret, ...this.state.comments]
+      ret = [...ret, ...this.link.comments]
       return ret
     },
     colHeight(){
-      return Math.min(200, this.state.comments.length*28+5) + 'px'
+      return Math.min(200, this.link.comments.length*28+5) + 'px'
     }
   },
   methods: {
@@ -85,12 +85,12 @@ export default {
         case 'multi':
           let checked = false
           this.links.map(v=>{
-            if(!!Comment.meta.slugs.filter(q=>q==v.slug).length) checked = true
+            //if(!!Comment.meta.slugs.filter(q=>q==v.slug).length) checked = true
           })
           return checked
         break
         default:
-          return !!Comment.meta.slugs.filter(v=>v==this.links.slug).length
+          //return !!Comment.meta.slugs.filter(v=>v==this.links.slug).length
         break
       }
     },

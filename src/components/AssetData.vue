@@ -130,7 +130,7 @@
       </td>
     </tr>
     <tr v-if="link.expandedInfo">
-      <td class="tdLeft">id</td>
+      <td class="tdLeft">asset id</td>
       <td class="tdRight" v-html="link.id"></td>
     </tr>
     <tr v-if="link.expandedInfo">

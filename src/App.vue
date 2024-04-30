@@ -1209,6 +1209,7 @@ export default {
                 description: decodeURIComponent(data[2][i].description),
                 slug: data[2][i].slug,
                 hash: data[2][i].hash,
+                comments: data[2][i].comments,
                 originalSlug: data[2][i].originalSlug,
                 originalDate: data[2][i].originalDate,
                 origin: data[2][i].origin,
