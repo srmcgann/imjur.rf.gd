@@ -65,7 +65,7 @@
         v-html="state.fileName(link)"
       ></td>
     </tr>
-    <tr>
+    <tr v-if="link.description">
       <td
         class="tdLeft">description</td><td class="tdRight"
         v-if="state.loggedinUserID == link.userID"
@@ -137,18 +137,28 @@
       <td class="tdLeft">origin</td>
       <td class="tdRight" v-html="link.origin.split(':')[0]"></td>
     </tr>
-    <!-- <tr><td class="tdLeft">first seen</td><td class="tdRight"v-html="state.firstSeen(link)"></td></tr> --> 
+    <!-- <tr><td class="tdLeft">first seen</td><td class="tdRight"v-html="state.firstSeen(link)"></td></tr> -->
+    <tr>
+      <td class="tdLeft">
+        comments
+      </td>
+      <td class="tdRight">
+        <LinkComments :state="state" :link="link" />
+      </td>
+    </tr>
   </table>
 </template>
 
 <script>
 import CollectionSelection from './CollectionSelection.vue'
+import LinkComments from './LinkComments.vue'
 
 export default {
   name: 'AssetData',
   props: [ 'state', 'link' ],
   components: {
-    CollectionSelection
+    CollectionSelection,
+    LinkComments
   },
   data(){
     return {

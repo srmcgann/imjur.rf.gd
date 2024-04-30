@@ -26,8 +26,9 @@ error_reporting(0);
   for($i=0; $i<mysqli_num_rows($res); ++$i){
     $row = mysqli_fetch_assoc($res);
     $slug = $row['slug'];
+    $uploadID = $row['id'];
     $m = [
-      'id'             => $row['id'],
+      'id'             => $uploadID,
       'slug'           => $slug,
       'size'           => json_decode($row['meta'])->{'file size'},
       'hash'           => $row['hash'],
@@ -51,6 +52,18 @@ error_reporting(0);
     $meta[] = $m;
   }
   if(sizeof($links)){
+    $ct = 0;
+    forEach($links as &$link){
+      $comments = [];
+      $uploadID = $meta[$ct++]['id'];
+      $sql = "SELECT * FROM imjurComments WHERE uploadID = $uploadID";
+      $res = mysqli_query($link, $sql);
+      for($i=0; $i<mysqli_num_rows($res); ++$i){
+        $row = mysqli_fetch_assoc($res);
+        $comments[] = $row;
+      }
+      $link["comments"] = $comments;
+    }
     echo json_encode([true, $links, $meta, $totalPages]);
   }else{
     echo json_encode([false]);
