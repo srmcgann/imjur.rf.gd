@@ -49,7 +49,7 @@
           title="view this item, in this comment"
         >👁</button> -->
         <br>
-      </div>
+      </div><br>
     </div>
   </div>
 </template>
