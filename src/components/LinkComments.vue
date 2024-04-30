@@ -38,7 +38,7 @@
           <span
             class="commentName"
             :style="`font-size:16px; margin-left:${checked(comment) ? '26px':'-10px'};`"
-             v-html="state.shortText(comment.name, 28)"
+             v-html="state.shortText(comment.text, 28)"
           </span>
         </label>
         <!--
@@ -119,6 +119,7 @@ export default {
       this.state.updateComment(obj)
     },
     updateSelection(e, comment){
+      /*
       let val = e.target.checked
       switch(this.mode){
         case 'multi':
@@ -142,6 +143,7 @@ export default {
           this.pushUpdate(comment)
         break
       }
+      */
     }
   },
   mounted(){
