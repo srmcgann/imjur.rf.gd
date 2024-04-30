@@ -53,7 +53,7 @@ error_reporting(E_ALL);
   }
   if(sizeof($links)){
     $ct = 0;
-    forEach($links as &$link){
+    forEach($links as &$lnk){
       $comments = [];
       $uploadID = $meta[$ct++]['id'];
       $sql = "SELECT * FROM imjurComments WHERE uploadID = $uploadID";
@@ -62,7 +62,7 @@ error_reporting(E_ALL);
         $row = mysqli_fetch_assoc($res);
         $comments[] = $row;
       }
-      $link["comments"] = $comments;
+      $lnk["comments"] = $comments;
     }
     echo json_encode([true, $links, $meta, $totalPages]);
   }else{
