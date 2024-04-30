@@ -66,12 +66,13 @@ export default {
     font-size: 14px;
   }
   .disabled{
-    background: #333;
+    background: #333!important;
     color: #888;
   }
   .commentInput{
     border: 1px solid #40f;
-    width: 600px;
+    width: calc(100vw - 20px);
+    max-width: 600px;
     background: #102;
     font-size: 16px;
     margin-top: 50px;
