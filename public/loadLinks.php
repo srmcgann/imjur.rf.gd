@@ -50,17 +50,16 @@ error_reporting(0);
     $meta[] = $m;
   }
   if(sizeof($links)){
-    $ct=0;
-    forEach($links as &$lnk){
+    forEach($meta as &$mta){
       $comments = [];
-      $uploadID = $meta[$ct++]['id'];
+      $uploadID = $mta['id'];
       $sql = "SELECT * FROM imjurComments WHERE uploadID = $uploadID";
       $res = mysqli_query($link, $sql);
       for($i=0; $i<mysqli_num_rows($res); ++$i){
         $row = mysqli_fetch_assoc($res);
         $comments[] = $row;
       }
-      $lnk["comments"] = $comments;
+      $mta["comments"] = $comments;
     }
     echo json_encode([true, $links, $meta]);
   }else{
