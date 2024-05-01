@@ -50,7 +50,7 @@
             type="checkbox"
             @change="updateSelection($event, comment)"
           >
-          <!-- <span class="checkmark" style="margin-left: -30px;"></span> -->
+          <span class="checkmark" style="margin-left: -30px;"></span>
           <div
             @click="state.getUserStats(link.userID)"
             class="avatar"
