@@ -36,8 +36,8 @@
         ></div>
         
         <span
-          :style="`font-size:16px; margin-left:${checked(comment) ? '26px':'-10px'};`"
-           v-html="comment.text"
+          class="commentText"
+          v-html="comment.text"
         </span>
         
         
@@ -215,15 +215,7 @@ export default {
   }
   .commentText{
     font-size:14px;
-    display:block;
-    width: 261px;
-    overflow: hidden;
-    word-break: auto-phrase;
     color:#4f8;
-    padding:0;
-    margin-left: -10px;
-    padding-left: 10px;
-    
   }
   .checkboxLabel{
     padding-left: unset;
@@ -235,7 +227,7 @@ export default {
   }
   .commentRow{
     display: inline-block;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
     line-height: 1em;
     position: relative;
   }
