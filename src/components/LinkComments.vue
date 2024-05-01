@@ -95,6 +95,13 @@ export default {
     }
   },
   computed:{
+    avatar(){
+      if(this.state.userInfo[this.link.userID]?.avatar.indexOf('avatarDefault.png') != -1){
+        return this.state.URLbase + '/avatarDefault.png'
+      }else{
+        return this.state.userInfo[this.link.userID]?.avatar
+      }
+    },
     filteredcomments(){
       let ret = ['none']
       ret = [...ret, ...this.link.comments]
@@ -227,7 +234,8 @@ export default {
   }
   .commentRow{
     display: inline-block;
-    margin-bottom: 1em;
+    margin-bottom: 10px;
+    margin-top: 10px;
     line-height: 1em;
     position: relative;
   }
