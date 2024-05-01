@@ -26,9 +26,22 @@
     >
       <div
         v-for="comment in link.comments"
-        style="position: relative;"
         class="commentRow"
       >
+        <div
+          @click="state.getUserStats(link.userID)"
+          class="avatar"
+          :title="`this comment was posted by ${state.userInfo[link.userID]?.name}`"
+          :style="`background-image: url(${avatar})`"
+        ></div>
+        
+        <span
+          :style="`font-size:16px; margin-left:${checked(comment) ? '26px':'-10px'};`"
+           v-html="comment.text"
+        </span>
+        
+        
+        <!--
         <label
           class="checkboxLabel commentLabel"
         >
@@ -37,13 +50,22 @@
             type="checkbox"
             @change="updateSelection($event, comment)"
           >
-          <span class="checkmark" style="margin-left: -30px;"></span>
+          <!-- <span class="checkmark" style="margin-left: -30px;"></span> -->
+          <div
+            @click="state.getUserStats(link.userID)"
+            class="avatar"
+            :title="`this comment was posted by ${state.userInfo[link.userID]?.name}`"
+            :style="`background-image: url(${avatar})`"
+          ></div>
+          
           <span
             class="commentText"
             :style="`font-size:16px; margin-left:${checked(comment) ? '26px':'-10px'};`"
              v-html="comment.text"
           </span>
         </label>
+        -->
+        
         <!--
         <button
           v-if="mode!='multi' && checked(comment)"
@@ -183,7 +205,7 @@ export default {
     border: 1px solid #0ff4;
     position: absolute;
     z-index: 50;
-    height: -webkit-fill-available;
+    max-height: -webkit-fill-available;
   }
   .commentLabel:hover{
     background: #0f44;
@@ -212,8 +234,9 @@ export default {
     margin-right: 0;
   }
   .commentRow{
-    display: block;
+    display: inline-block;
     margin-bottom: 2em;
     line-height: 1em;
+    position: relative;
   }
 </style>
