@@ -36,8 +36,8 @@
         ></div>
         
         <span
-          class="commentHeader(comment)"
-          v-html="header"
+          class="commentHeader"
+          v-html="header(comment)"
         </span>
         <span
           class="commentText"
@@ -227,9 +227,12 @@ export default {
   .commentLabel{
     display: block;
   }
-  .commentText{
+  .commentHeader, .commentText{
     font-size:14px;
     color:#4f8;
+  }
+  .commentHeader{
+    color: #ff0;
   }
   .checkboxLabel{
     padding-left: unset;
