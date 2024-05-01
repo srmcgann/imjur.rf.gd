@@ -16,7 +16,7 @@
       class="assetDataButton"
       style="background: #4f8d"
       title="view and edit your comments"
-      v-html="link.comments.length ? 'manage' : 'create a comment'"
+      v-html="link.comments.length ? 'comment' : 'create a comment'"
     ></button><br>
     <div
       @mousedown.stop.prevent
@@ -35,6 +35,10 @@
           :style="`background-image: url(${avatar})`"
         ></div>
         
+        <span
+          class="commentHeader(comment)"
+          v-html="header"
+        </span>
         <span
           class="commentText"
           v-html="comment.text"
@@ -55,7 +59,7 @@
             @click="state.getUserStats(link.userID)"
             class="avatar"
             :title="`this comment was posted by ${state.userInfo[link.userID]?.name}`"
-            :style="`background-image: url(${avatar})`"
+            :style="`background-image: url(${avatar});`"
           ></div>
           
           <span
@@ -112,6 +116,9 @@ export default {
     }
   },
   methods: {
+    header(comment){
+      return this.state.shortText(this.state.userInfo[comment.userID].name, 10) + ' : ' + this.state.prettyDate(comment.date)
+    },
     checked(comment){
       switch(this.mode){
         case 'multi':
@@ -235,8 +242,17 @@ export default {
   .commentRow{
     display: inline-block;
     margin-bottom: 10px;
-    margin-top: 10px;
+    margin: 0;
     line-height: 1em;
+    border-bottom: 1px solid 4f88;
     position: relative;
+  }
+  .avatar{
+    margin: 3px;
+    margin-left: 0;
+    width:45px;
+    height:80px;
+    display:inline-block;
+    float: left;
   }
 </style>

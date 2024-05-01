@@ -2004,7 +2004,8 @@ a{
   height: 24px;
   margin: 0;
   margin-right: 10px;
-  min-width: unset;
+  min-width: 100px;
+  float: right;
 }
 #copyConfirmation{
   display: none;
