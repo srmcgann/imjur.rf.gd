@@ -2000,7 +2000,7 @@ a{
 .assetDataButton{
   line-height: 13px;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 14px;
   height: 24px;
   margin: 0;
   margin-right: 10px;
