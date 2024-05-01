@@ -117,7 +117,7 @@ export default {
   },
   methods: {
     header(comment){
-      return this.state.shortText(this.state.userInfo[comment.userID].name, 10) + ' : ' + this.state.prettyDate(comment.date)
+      return this.state.shortText(this.state.userInfo[comment.userID].name, 10) + ' : ' + this.state.prettyDate({date: comment.date}) + "<br>"
     },
     checked(comment){
       switch(this.mode){
@@ -253,9 +253,9 @@ export default {
   .avatar{
     margin: 3px;
     margin-left: 0;
-    width:45px;
-    height:80px;
-    display:inline-block;
+    width: 80px;
+    height: 45px;
+    display: inline-block;
     float: left;
   }
 </style>
