@@ -25,7 +25,7 @@ error_reporting(E_ALL);
   if($passhash){
     $sql = "SELECT * FROM imjurUsers WHERE id = $userID AND passhash LIKE BINARY\"$passhash\"";
     $res = mysqli_query($link, $sql);
-    if(mysqli_num_rows($res){
+    if(mysqli_num_rows($res)){
       $row = mysqli_fetch_assoc($res);
       $admin = $row['admin'];
       $enabled = $row['enabled'];
