@@ -1,16 +1,14 @@
 <?php
-//ini_set('display_errors', 1);
-//ini_set('display_startup_errors', 1);
-error_reporting(0);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
   require_once('db.php');
   require_once('functions.php');
   
-  $userID = mysqli_real_escape_string($link, $preval);
-  
   $userID = '';
+  $preval = $data->{'userID'};
   $passhash = '';
   $data = json_decode(file_get_contents('php://input'));
-  $preval = $data->{'userID'};
   if($preval !== null && $preval){
     $userID = mysqli_real_escape_string($link, $preval);
     $passhash = mysqli_real_escape_string($link, $data->{'passhash'});
@@ -40,7 +38,7 @@ error_reporting(0);
 
   //if(!$anon && !$enabled) $userID = false;
 
-  //if($userID){
+  if($userID){
 
     $success = true;
     $sql = "SELECT * FROM imjurUploads WHERE userID = $userID AND ($enabled OR NOT private)";
@@ -71,7 +69,7 @@ error_reporting(0);
     }
     echo json_encode([$success, $assets]);
     
-  //}else{
-  //  echo json_encode([$success]);
-  //}
+  }else{
+    echo json_encode([$success]);
+  }
 ?>
